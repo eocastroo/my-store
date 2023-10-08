@@ -1,0 +1,22 @@
+.box
+  height: 200px
+  width: 200px
+  overflow: auto
+  background: blue
+
+.productos--grid
+  display: flex
+  flex-direction: column
+  div
+    img
+      width: 100%
+      border-radius: 20px
+
+    h2, p
+        margin: 0
+
+@media screen and (min-width: 40em)
+  .productos--grid
+    display: grid
+    grid-template-columns: repeat(5, 1fr)
+    grid-gap: 15px

@@ -1,0 +1,101 @@
+<!--ngSwitch-->
+<h1> ngSwitch</h1>
+<input type="text" required [(ngModel)]="Person.name" />
+<div [ngSwitch]="Person.name">
+  <p *ngSwitchCase="'edwin'">
+    La persona es edwin
+  </p>
+  <p *ngSwitchCase="'Andres'">
+    La persona es Andres
+  </p>
+  <p *ngSwitchCase="'Jhohana'">
+    La persona es Jhonana
+  </p>
+  <p *ngSwitchDefault> No hace match </p>
+</div>
+
+<hr>
+<!--*ngFor para arrays-->
+<h1>*ngFor con arrays</h1>
+<div class="productos--grid">
+  <div *ngFor="let producto of productos">
+    <img [src]="producto.imagen" alt="imagen">
+    <h2> {{ producto.precio }} </h2>
+    <p>{{producto.name}}</p>
+  </div>
+</div>
+
+<hr>
+<!--*ngFor-->
+<h1>*ngFor</h1>
+<input type="text" required [(ngModel)]="newName" />
+<button (click) = "addName()">Add name</button>
+<ul>
+  <li *ngIf="names.length === 0"> No hay nombres</li>
+  <li *ngFor="let name of names; index as i">
+    <button (click) = "deleteName(i)">Delete</button>
+    {{i}} {{ name }}
+  </li>
+</ul>
+
+<!--*ngIf-->
+<h1>*ngIf</h1>
+  <input type="text" required [(ngModel)]="Person.name" />
+  <p *ngIf="Person.name === 'Edwin'">Soy edwin</p>
+  <p *ngIf="Person.name === 'Andres' && Person.age === 18; else myBlock">Soy andres</p>
+
+  <ng-template #myBlock>
+    <P>Bloque else</P>
+  </ng-template>
+  <hr>
+
+<!-- ngModel-->
+
+<h1>ngModel</h1>
+<p>Nombre {{Person.name}}</p>
+<input type="text" required #nameInput= "ngModel" [(ngModel)]="Person.name" />
+<p>Valid: {{nameInput.valid}}</p>
+
+<p>Edad {{Person.age}}</p>
+<input type="number" max=18 min=10 required #ageInput= "ngModel" [(ngModel)]="Person.age" />
+<p>Valid: {{ageInput.valid}}</p>
+
+<hr>
+
+<!--Eventos-->
+<h1>Eventos</h1>
+<button [disabled] = btnDisable >enviar</button>
+<button (click) = "toggleButton()">Toggle Button</button>
+<p>Edad {{Person.age}}</p>
+<button (click) = "increaseAge()">Increase</button>
+<!--Scroll-->
+
+<div class="box" (scroll)="onscroll($event)">
+  <p>Our English Online self-study course costs just £5.99 per month and gives you a low-cost way to reach your goals in English. Improve your English speaking, listening, reading and writing through a combination of web-based exercises, webinars on grammar and pronunciation and optional online live classes.</p>
+</div>
+<hr>
+<!--keyup-->
+<p>Nombre {{Person.name}}</p>
+<input type="text" [value]="Person.name" (keyup)="changeName($event)">
+
+
+<!--Property Binding-->
+<h1>Propidades</h1>
+<button [disabled] = btnDisable >enviar</button>
+<input type="text" [value] = "name">
+<progress max = "100" [value] = "age"></progress>
+<img  width= "150" [src] ="img" />
+<hr>
+<!--Asi se realiza con objetos-->
+<hr>
+<input type = "text" [value] = "Person.name">
+<progress max = "100" [value] = "Person.age"></progress>
+<img width="100" [src]="Person.img" />
+
+
+<!--String interpolation-->
+<h1> Hola mundo</h1>
+<h2>{{'Hola mundo'.repeat(5)}}</h2>
+<p> 3 + 3  = {{3 + 3}}</p>
+<h2>hola mi nombre es {{name}} y tengo {{age}}</h2>
+<img width="200" src={{img}} alt="imagen">
