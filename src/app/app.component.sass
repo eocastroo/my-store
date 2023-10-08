@@ -1,3 +1,5 @@
+@import 'vars'
+
 .box
   height: 200px
   width: 200px
@@ -14,6 +16,69 @@
 
     h2, p
         margin: 0
+
+.message-error
+  background: red
+  color: white
+  opacity: 0
+  transition: all linear .5s
+  &.invalid
+     opacity: 1
+
+.line-error
+  height: 0
+  border-bottom: 2px solid
+  &.invalid
+     border-color: red
+  &.valid
+     border-color: green
+
+
+.styles
+  display: grid
+  grid-template-columns: repeat(2, 1fr)
+
+.form
+  display: flex
+  flex-direction: column
+  text-decoration: none
+  margin-bottom: 52px
+  place-items: center
+
+.input-group
+    width: 10%
+    height: 10%
+    display: grid
+
+.label-name
+   font-size: var(--sm)
+   font-weight: bold
+   margin-bottom: 4px
+.input
+  background: #C7C7C7
+  border-radius: 8px
+  width: 200%
+  height: 20px
+  font-size:italic
+  padding: 6px
+  margin-bottom: 12px
+  border: none
+
+.primary-button
+  background-color: #27F0E1
+  border-radius: 8px
+  border: none
+  color: black
+  width: 10%
+  height: 40px
+  cursor: pointer
+  font-weight: bold
+
+
+
+
+
+
 
 @media screen and (min-width: 40em)
   .productos--grid

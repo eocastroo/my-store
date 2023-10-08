@@ -7,7 +7,8 @@ import {Producto} from './product.model';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
-  title = 'my-store';
+   title = 'my-store';
+   widthImg = 10;
    name = 'edwin castro';
    age = 30;
    img = 'https://source.unsplash.com/random';
@@ -23,6 +24,29 @@ export class AppComponent {
    //Arrays
   names: string[] = ['Edwin','Orlando', 'Marlen']
   newName = '';
+
+// Objeto del registro
+
+   register = {
+    name:'',
+    email:'',
+    password:'',
+   }
+// Login
+   login = {
+    email: '',
+    password: '',
+
+   }
+
+
+  //Objeto
+  box = {
+    width: 100,
+    height: 100,
+    background: 'red'
+  }
+
   productos: Producto[] = [
     {
       name: 'Album',
@@ -76,5 +100,14 @@ export class AppComponent {
     this.names.splice(index, 1);
    }
 
+   onRegister(){
+    console.log(this.register)
+
+   }
+
+   onLogin(){
+    
+    console.log(this.login)
+   }
 
 }
